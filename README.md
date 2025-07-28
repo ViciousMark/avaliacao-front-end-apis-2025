@@ -1,77 +1,108 @@
+# 📝 Desafio Front-end - Nível Jr
 
-# Desafio Front-end - Nível Jr
+## 🎯 Objetivo
+Desenvolver uma aplicação web que consome APIs públicas para autenticação de usuários e exibição de posts, com funcionalidades de busca e visualização detalhada.
 
-## Objetivo
+## 🖼️ Pré-visualização da Interface
 
-O objetivo deste desafio é avaliar suas habilidades em desenvolvimento de páginas web front-end. Você deverá criar uma UI simples que consome uma API pública, exibe os dados em uma lista, permite a navegação para uma tela de detalhes e possui uma funcionalidade de busca.
+### 🔐 Tela de Login
+![Tela de Login](image0.png)  
+*Interface de login com campos para usuário/senha e botão de acesso*
 
-## Requisitos
+### 📋 Listagem de Posts
+![Lista de Posts](image1.png)  
+*Exibição dos posts em cards com campo de busca integrado*
 
-- **Plataforma:** Web (Front-end).
-- **Linguagem:** O código principal do aplicativo deve ser escrito em HTML, CSS e JavaScript (ou TypeScript).
-- **Framework:** Sem frameworks pesados, mas você pode usar bibliotecas leves como React ou Vue.js ou Bootstrap.
-- **API:** Utilize a API pública [JSONPlaceholder](https://jsonplaceholder.typicode.com/) para obter os dados e a API [DummyJSON](https://dummyjson.com/docs/auth) para autenticação de usuários.
+### 🔍 Detalhes do Post
+![Detalhes](image2.png)  
+*Modal com conteúdo completo do post selecionado*
 
-## Funcionalidades
+### 🚪 Logout
+![Botão Sair](image3.png)  
+*Opção para encerrar a sessão do usuário*
 
-### 1. Tela de Login
+## 🛠️ Requisitos Técnicos
 
-- Crie uma tela de login com campos para usuário e senha.
-- Utilize a API [DummyJSON](https://dummyjson.com/docs/auth) para autenticar o usuário. A rota de autenticação é `https://dummyjson.com/auth/login`.
-- As credenciais do usuário devem ser armazenadas de forma segura no dispositivo (por exemplo, usando LocalStorage) para que o usuário permaneça logado ao entrar na página junto com a estratégia de refreshtoken quando o token do usuário expirar.
-- Adicione uma funcionalidade de logout.
+### 📋 Funcionalidades Obrigatórias
+1. **Autenticação Segura**
+   - Integração com API DummyJSON
+   - Armazenamento seguro de tokens (LocalStorage)
+   - Mecanismo de refresh token
 
-### 2. Tela de Listagem de Posts
+2. **Gestão de Posts**
+   - Listagem em cards
+   - Paginação ou scroll infinito
+   - Visualização detalhada em modal
 
-- Após o login, a primeira tela deve exibir uma lista de posts em forma de cards.
-- Cada item da lista deve exibir o título do post.
-- Os dados dos posts devem ser obtidos da rota `/posts` da API do JSONPlaceholder.
+3. **Sistema de Busca**
+   - Filtro em tempo real
+   - Feedback visual durante a pesquisa
 
-### 3. Tela de Detalhes do Post
+4. **Experiência do Usuário**
+   - Design responsivo
+   - Estados de loading/error
+   - Feedback visual para ações
 
-- Ao tocar em um item da lista, o usuário deve ser redirecionado para um modal de detalhes do post.
-- O modal de detalhes deve exibir o título e o corpo do post.
-- Os dados do post podem ser passados da tela de listagem ou obtidos da rota `/posts/:id` da API.
+### ⚙️ Stack Tecnológica
+| Componente       | Tecnologias Permitidas               |
+|------------------|--------------------------------------|
+| Frontend         | HTML5, CSS3, JavaScript ES6+         |
+| Frameworks       | React/Vue (opcional)                 |
+| Estilização      | CSS puro ou pré-processadores        |
+| Gerenciamento    | Webpack/Vite (opcional)              |
 
-### 4. Funcionalidade de Busca
-
-- Na tela de listagem, adicione um campo de busca para filtrar os posts pelo título.
-- A busca deve ser realizada em tempo real, à medida que o usuário digita.
-
-### 5. Responsividade UX
-
-- A interface deve ser responsiva e funcionar bem em dispositivos móveis e desktops.
-- Utilize boas práticas de design responsivo, como media queries e flexbox ou grid layout.
-
-## Estrutura do Projeto
-
-- Organize o código-fonte em uma estrutura clara e coesa. Sugerimos a seguinte estrutura:
-
+## 📂 Estrutura do Projeto
+```bash
+├── public/
+│   ├── index.html
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── PostCard.js
+│   │   ├── SearchBar.js
+│   ├── pages/
+│   │   ├── Login/
+│   │   │   ├── index.js
+│   │   │   ├── style.css
+│   │   ├── Posts/
+│   │   │   ├── index.js
+│   │   │   ├── style.css
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── auth.js
+├── README.md
 ```
-/index.html
-/pages/
-  /login.html
-  /posts.html
-/styles
-  /main.css
-/scripts
-  /login.js
-  /posts.js
-```
-- Os arquivos já estão criados, mas você pode reorganizar conforme necessário.
-- A folha de estilos main.css já está vinculada as páginas HTML, mas você pode criar outras folhas de estilos se necessário.
-  - Não é necessário utilizar as fontes, paleta de cores em main.css pode utilizar sua criatividade para criar uma UI agradável.
 
-## Avaliação
+## 🔍 Critérios de Avaliação
 
-Serão avaliados os seguintes pontos:
+### 🧠 Lógica e Implementação
+- Eficiência no consumo de APIs
+- Tratamento adequado de erros
+- Gestão de estado da aplicação
 
-- **Qualidade do código:** Clareza, organização, manutenibilidade e boas práticas de programação.
-- **Estilo e UI e UX:** A interface do usuário deve ser limpa, intuitiva e responsiva.
-- **Funcionalidade:** O aplicativo deve atender a todos os requisitos funcionais descritos.
+### 🎨 Interface e UX
+- Consistência visual
+- Hierarquia de informação clara
+- Acessibilidade básica (ARIA, contrastes)
 
-## Como Entregar
+### ⚡ Performance
+- Carregamento otimizado
+- Renderização eficiente
+- Gerenciamento de memória
 
-1. Crie um fork deste repositório.
-2. Implemente a solução.
-3. Faça commits frequentes e claros.
+## 📤 Processo de Submissão
+1. Fork do repositório base
+2. Desenvolvimento em branches feature
+3. Commits atômicos e descritivos
+4. Pull request com:
+   - Descrição das alterações
+   - Screenshots atualizadas
+   - Checklist de requisitos atendidos
+
+## 💡 Dicas Extras
+- Implemente skeletons durante loading
+- Considere testes unitários básicos
+- Documente decisões arquiteturais
+- Mantenha consistência nos nomes de variáveis
+
+> **Nota**: A criatividade na solução será valorizada, desde que os requisitos básicos sejam cumpridos. Fique à vontade para adicionar melhorias que julgar relevantes para a experiência do usuário.
